@@ -20,7 +20,8 @@ public class Day2 {
     public static void main(String[] args) {
         int validPasswords = 0;
         int validPasswordsv2 = 0;
-        List<String> l = readFileInList("C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day2\\text.txt");
+        List<String> l = readFileInList(
+                "C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day2\\text.txt");
         for(String line: l){
             String[] splited = line.split("\\s+");
             String[] ints = splited[0].split("-");

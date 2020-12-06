@@ -1,8 +1,10 @@
 package Day1;
+
 import java.util.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.io.*;
+
 public class Day1 {
     public static List<Integer> readFileInList(String fileName) {
         List<String> lines = Collections.emptyList();
@@ -12,12 +14,13 @@ public class Day1 {
             e.printStackTrace();
         }
         List<Integer> intList = new ArrayList<>();
-        for(String s : lines) intList.add(Integer.valueOf(s));
+        for (String s : lines) intList.add(Integer.valueOf(s));
         return intList;
     }
 
     public static void main(String[] args) {
-        List<Integer> l = readFileInList("C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day1\\text.txt");
+        List<Integer> l = readFileInList(
+                "C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day1\\text.txt");
         Collections.sort(l);
         label:
         for(int i = 0; i < l.size()-1; i++){

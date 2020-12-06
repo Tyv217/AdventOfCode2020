@@ -18,6 +18,7 @@ public class Day3 {
         }
         return lines;
     }
+
     public static int numberOfTreesEncountered(List<char[]> charList, int Right, int Down){
         int index = 0;
         int trees = 0;
@@ -32,7 +33,8 @@ public class Day3 {
     }
 
     public static void main(String[] args) {
-        List<String> l = readFileInList("C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day3\\text.txt");
+        List<String> l = readFileInList(
+                "C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day3\\text.txt");
         List<char[]> charList = new ArrayList<>(l.size());
         for(String line: l){
             charList.add(line.toCharArray());

@@ -1,7 +1,5 @@
 package Day4;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -10,16 +8,15 @@ import java.util.*;
 
 public class Day4 {
     public static List<String> readFileInList(String fileName) {
-
         List<String> lines = Collections.emptyList();
         try {
             lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return lines;
     }
+
     public static List<String> combineStrings(List<String> lines){
         List<String> allStrings = new ArrayList<>();
         lines.add("");
@@ -40,6 +37,7 @@ public class Day4 {
         }
         return allStrings;
     }
+
     public static int countValidPassports(List<String> allStrings){
         int count = 0;
         for(String passport: allStrings){
@@ -51,6 +49,7 @@ public class Day4 {
         }
         return count;
     }
+
     public static int countValidPassportsV2(List<String> allStrings){
         int count = 0;
         for(String passport: allStrings){
@@ -114,8 +113,10 @@ public class Day4 {
         }
         return count;
     }
+
     public static void main(String[] args) {
-        List<String> l = readFileInList("C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day4\\text.txt");
+        List<String> l = readFileInList(
+                "C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day4\\text.txt");
         List<String> allStrings = combineStrings(l);
         System.out.println(countValidPassports(allStrings));
         System.out.println(countValidPassportsV2(allStrings));

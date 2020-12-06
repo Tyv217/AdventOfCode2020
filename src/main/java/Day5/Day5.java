@@ -10,16 +10,15 @@ import java.util.List;
 
 public class Day5 {
     public static List<String> readFileInList(String fileName) {
-
         List<String> lines = Collections.emptyList();
         try {
             lines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return lines;
     }
+
     public static int findMaxSeatID(List<String> lines){
         int max = 0;
         for(String seatPartitions: lines){
@@ -63,6 +62,7 @@ public class Day5 {
         }
         return max;
     }
+
     public static int findMySeatID(List<String> lines) {
         List<Integer> seatIdList = new ArrayList<>(lines.size());
         for (String seatPartitions : lines) {
@@ -98,8 +98,6 @@ public class Day5 {
                 seatID += upperBound1;
             }
             seatIdList.add(seatID);
-
-
         }
         Collections.sort(seatIdList);
         int returnSeatID = 0;
@@ -112,10 +110,9 @@ public class Day5 {
     }
 
     public static void main(String[] args) {
-        List<String> lines = readFileInList("C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day5\\text.txt");
-        int max = findMaxSeatID(lines);
-        System.out.println(max);
-        int mySeatID = findMySeatID(lines);
-        System.out.println(mySeatID);
+        List<String> lines = readFileInList(
+                "C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day5\\text.txt");
+        System.out.println(findMaxSeatID(lines));
+        System.out.println(findMySeatID(lines));
     }
 }
