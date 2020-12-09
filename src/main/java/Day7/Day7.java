@@ -99,14 +99,14 @@ public class Day7 {
         return (graph.Traverse(graph, "shiny gold")).size() - 1;
     }
 
-    public static class recursive{
-        public static List<String> stringList;
+    public static class RecursiveTraverse{
+        public List<String> stringList;
 
-        public recursive(){
-            stringList = new ArrayList<String>();
+        public RecursiveTraverse(){
+            stringList = new ArrayList<>();
         }
 
-        public static void recursiveIterate(List<String> allStrings, String source){
+        public void recursiveIterate(List<String> allStrings, String source){
             String[] sourceStringArray = source.split(" ");
             String source1 = sourceStringArray[1] + " " + sourceStringArray[2];
             int weight = Integer.parseInt(sourceStringArray[0]);
@@ -126,7 +126,7 @@ public class Day7 {
             }
         }
 
-        public static int sumUpBags(){
+        public int sumUpBags(){
             int total = 0;
             for(String string: stringList){
                 String[] stringArray = string.split(" ");
@@ -141,7 +141,7 @@ public class Day7 {
                 "C:\\Users\\thoma\\IdeaProjects\\AdventOfCode2020\\src\\main\\java\\day7\\text.txt");
         int totalColours = returnDistinctColoursThatContainShinyGoldBag(lines);
         System.out.println(totalColours);
-        recursive recur = new recursive();
+        RecursiveTraverse recur = new RecursiveTraverse();
         recur.recursiveIterate(lines, "1 shiny gold");
         System.out.println(recur.sumUpBags());
     }
