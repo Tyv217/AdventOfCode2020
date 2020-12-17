@@ -1,4 +1,4 @@
-package Day8;
+package Day08;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class Day8 {
+public class Day08 {
     public static List<String> readFileInList(String fileName) {
         List<String> lines = Collections.emptyList();
         try {

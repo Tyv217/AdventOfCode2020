@@ -1,11 +1,11 @@
-package Day1;
+package Day01;
 
 import java.util.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.io.*;
 
-public class Day1 {
+public class Day01 {
     public static List<Integer> readFileInList(String fileName) {
         List<String> lines = Collections.emptyList();
         try {
