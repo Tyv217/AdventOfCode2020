@@ -137,7 +137,9 @@ public class Day16 {
             nearbyTickets.add(validTicket.split(","));
         }
         Map<String,List<Integer>> possibleCorrectFields = new HashMap<>();
-        for (String field : fields) {
+        // There are more than one matching slots for each field, therefore we need to create a list to store them all.
+        for (String field: fields) {
+            // for each field, find the corresponding matching slots
             List<Integer> correspondingFieldNumbers = new ArrayList<>();
             String[] fieldArray = field.split("[ -]+");
             int length = fieldArray.length;
@@ -146,8 +148,10 @@ public class Day16 {
             int lowerBound2 = Integer.parseInt(fieldArray[length - 2]);
             int upperBound2 = Integer.parseInt(fieldArray[length - 1]);
             for (int x = 0; x < nearbyTickets.get(0).length; x++) {
+                // loop through each slot
                 boolean isCorrespondingField = true;
                 for (String[] Ticket : nearbyTickets) {
+                    // loop through each ticket
                     int fieldToTest = Integer.parseInt(Ticket[x]);
                     if ((inRange(fieldToTest, lowerBound1, upperBound1))
                             && (inRange(fieldToTest, lowerBound2, upperBound2))) {
@@ -174,6 +178,7 @@ public class Day16 {
             int correctFieldNumber = -1;
             for(Map.Entry<String,List<Integer>> entry: possibleCorrectFields.entrySet()){
                 if(entry.getValue().size() == 1){
+                    // if the list only has one element, then it must be that slot
                     int y = entry.getValue().get(0);
                     correctFields.put(entry.getKey(),y);
                     correctFieldNumber = y;
@@ -181,6 +186,12 @@ public class Day16 {
                 }
             }
             Map<String,List<Integer>> newMap = new HashMap<>();
+            /*
+            I was unsure if you can directly edit the map you are iterating through, since you cannot do so for
+            collections without using an iterator, therefore just to be safe I decided to create a new map everytime and
+            replace the old map with the new on. Might be a bit more inefficient but at least I won't have to worry
+            about random crashes.
+            */
             for(Map.Entry<String,List<Integer>> entry: possibleCorrectFields.entrySet()){
                 List<Integer> newList = new ArrayList<>(entry.getValue());
                 if(entry.getValue().contains(correctFieldNumber)){
